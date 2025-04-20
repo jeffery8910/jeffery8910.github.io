@@ -5,19 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSV 描述性統計分析 (DuckDB-Wasm)</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-wasm.js"></script>
-<script>
-  const duckdb = window.duckdbWasm || window.duckdb;  
-  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();  
-  const bundle          = await duckdb.selectBundle(JSDELIVR_BUNDLES);
-  const workerUrl = URL.createObjectURL(
-    new Blob([`importScripts("${bundle.mainWorker}")`], {type:'text/javascript'})
-  );
-  const worker = new Worker(workerUrl);
-  const logger = new duckdb.ConsoleLogger();
-  const db     = new duckdb.AsyncDuckDB(logger, worker);
-  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
-</script>
+    <!-- DuckDB Wasm Loader is now handled within script.js using ESM import -->
 </head>
 <body>
     <header>
@@ -29,7 +17,7 @@
         <section id="upload-section">
             <label for="csvFileInput">選擇一個 CSV 檔案:</label>
             <input type="file" id="csvFileInput" accept=".csv">
-            <div id="status">請選擇檔案以開始分析。</div>
+            <div id="status">正在等待 DuckDB 初始化...</div>
         </section>
 
         <section id="results-section" style="display: none;">
@@ -52,7 +40,7 @@
         <p>Powered by DuckDB-Wasm</p>
     </footer>
 
-    <!-- Main JavaScript Logic -->
+    <!-- Main JavaScript Logic - uses ESM import internally -->
     <script type="module" src="script.js"></script>
 </body>
 </html>
