@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSV 描述性統計分析 (DuckDB-Wasm)</title>
     <link rel="stylesheet" href="style.css">
-    <!-- DuckDB Wasm Loader -->
-    <!-- Using JSDelivr CDN. You might want to host these files yourself for production -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@latest/dist/duckdb-browser-mvp.worker.js?module" defer></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@latest/dist/duckdb-browser-mvp.js?module" defer></script>
-    <!-- Or use specific versions for stability -->
-    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/dist/duckdb-browser-mvp.worker.js?module" defer></script> -->
-    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/dist/duckdb-browser-mvp.js?module" defer></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-wasm.js"></script>
+<script>
+  const duckdb = window.duckdbWasm || window.duckdb;  
+  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();  
+  const bundle          = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+  const workerUrl = URL.createObjectURL(
+    new Blob([`importScripts("${bundle.mainWorker}")`], {type:'text/javascript'})
+  );
+  const worker = new Worker(workerUrl);
+  const logger = new duckdb.ConsoleLogger();
+  const db     = new duckdb.AsyncDuckDB(logger, worker);
+  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+</script>
 </head>
 <body>
     <header>
