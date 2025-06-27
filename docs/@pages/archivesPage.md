@@ -1,6 +1,6 @@
 ---
 archivesPage: true
-title: 归档
+title: 存檔
 permalink: /archives/
 article: false
 ---
