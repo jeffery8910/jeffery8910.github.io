@@ -1,6 +1,5 @@
-fix: Update Node.js version and clear npm cache in CI
+refactor: Rebuild VuePress site after clearing cache
 
-This commit updates the Node.js version in the GitHub Actions workflow
-to 20 (LTS) and adds `npm cache clean --force` before `npm install`.
-This aims to resolve potential Node.js compatibility issues and ensure
-a clean dependency installation during CI builds.
+This commit rebuilds the VuePress site after clearing the build cache.
+This ensures that the latest changes, including theme language configurations,
+are reflected in the generated static files.

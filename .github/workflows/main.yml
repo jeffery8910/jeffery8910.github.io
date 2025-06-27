@@ -23,10 +23,12 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16' # Or your preferred Node.js version
+        node-version: '20' # Updated to Node.js 20 LTS
 
     - name: Install dependencies
-      run: npm install # Or yarn install if you use yarn
+      run: |
+        npm cache clean --force
+        npm install # Or yarn install if you use yarn
 
     - name: Build VuePress project
       run: npm run docs:build # Assuming you have a 'docs:build' script in your package.json that builds to docs/.vuepress/dist
