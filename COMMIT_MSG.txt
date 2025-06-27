@@ -1,13 +1,6 @@
-revert: Revert to VuePress 1.x and vdoing theme
+fix: Update Node.js version and clear npm cache in CI
 
-This commit reverts the changes made to migrate to VuePress 2 and
-vuepress-theme-hope, bringing the project back to VuePress 1.x with
-the vdoing theme.
-
-Changes include:
-- Uninstalled vuepress-theme-hope and @vuepress/bundler-vite.
-- Reinstalled vuepress@1.9.10 and vuepress-theme-vdoing@1.12.9.
-- Restored docs/.vuepress/config.js to vdoing theme configuration.
-- Reverted frontmatter in docs/pages/folder1/test1.md (category -> categories, tag -> tags).
-- Reverted .github/workflows/main.yml (Node.js version to 16, removed npm cache clean).
-- Rebuilt the site.
+This commit updates the Node.js version in the GitHub Actions workflow
+to 20 (LTS) and adds `npm cache clean --force` before `npm install`.
+This aims to resolve potential Node.js compatibility issues and ensure
+a clean dependency installation during CI builds.
