@@ -1,1 +1,5 @@
-feat: Add VuePress project, deployment script, and update config
+refactor: Rebuild VuePress site after clearing cache
+
+This commit rebuilds the VuePress site after clearing the build cache.
+This ensures that the latest changes, including theme language configurations,
+are reflected in the generated static files.

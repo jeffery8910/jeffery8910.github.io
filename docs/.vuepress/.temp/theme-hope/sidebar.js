@@ -1,0 +1,1 @@
+export const sidebarData = {"/":["",{"text":"@pages","prefix":"@pages/","collapsible":true,"children":["/categories/","/archives/","/tags/"]},{"text":"Pages","prefix":"pages/","collapsible":true,"children":[{"text":"Folder1","prefix":"folder1/","collapsible":true,"children":["/pages/35bc95/"]}]}]};

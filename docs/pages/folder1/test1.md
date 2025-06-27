@@ -1,9 +1,8 @@
 ---
 title: 我的第一篇文章
 date: 2024-05-20 00:00:00
-categories: 
-  - 技術
-tags: 
+category: 技術
+tag:
   - VuePress
   - Vdoing
 permalink: /pages/35bc95/
