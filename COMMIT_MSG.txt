@@ -1,5 +1,5 @@
-refactor: Rebuild VuePress site after clearing cache
+feat: Configure vuepress-theme-hope for Traditional Chinese
 
-This commit rebuilds the VuePress site after clearing the build cache.
-This ensures that the latest changes, including theme language configurations,
-are reflected in the generated static files.
+This commit configures vuepress-theme-hope to display in Traditional Chinese.
+It includes setting up the navbar, sidebar, and all locale-specific texts
+within the theme configuration.
