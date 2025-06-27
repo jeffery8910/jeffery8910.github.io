@@ -1,18 +1,41 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-TW" data-theme="light">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>我的部落格</title>
-    <meta name="generator" content="VuePress 1.9.10">
-    
-    <meta name="description" content="一個由 VuePress 與 Vdoing 主題驅動的部落格。">
-    
-    <link rel="preload" href="/assets/css/0.styles.f8e996a3.css" as="style"><link rel="preload" href="/assets/js/app.7b2773db.js" as="script"><link rel="preload" href="/assets/js/6.c239e6da.js" as="script"><link rel="prefetch" href="/assets/js/1.31735705.js"><link rel="prefetch" href="/assets/js/10.6fc455db.js"><link rel="prefetch" href="/assets/js/11.501488ae.js"><link rel="prefetch" href="/assets/js/12.e74a05cd.js"><link rel="prefetch" href="/assets/js/13.e398c424.js"><link rel="prefetch" href="/assets/js/14.48021c75.js"><link rel="prefetch" href="/assets/js/15.611e47b9.js"><link rel="prefetch" href="/assets/js/16.42672117.js"><link rel="prefetch" href="/assets/js/17.a687286b.js"><link rel="prefetch" href="/assets/js/18.5da5bbb0.js"><link rel="prefetch" href="/assets/js/19.8352c110.js"><link rel="prefetch" href="/assets/js/2.9714a908.js"><link rel="prefetch" href="/assets/js/20.7f3e4938.js"><link rel="prefetch" href="/assets/js/21.13157528.js"><link rel="prefetch" href="/assets/js/22.b1b06d4a.js"><link rel="prefetch" href="/assets/js/23.c63cfb48.js"><link rel="prefetch" href="/assets/js/24.3ad70e5d.js"><link rel="prefetch" href="/assets/js/25.fbdf5d3d.js"><link rel="prefetch" href="/assets/js/26.71ec9db9.js"><link rel="prefetch" href="/assets/js/27.e1801048.js"><link rel="prefetch" href="/assets/js/28.e41354c0.js"><link rel="prefetch" href="/assets/js/29.091c70c2.js"><link rel="prefetch" href="/assets/js/3.d40ceb73.js"><link rel="prefetch" href="/assets/js/30.932e7352.js"><link rel="prefetch" href="/assets/js/31.5d45501e.js"><link rel="prefetch" href="/assets/js/32.4858dd12.js"><link rel="prefetch" href="/assets/js/33.162b3f89.js"><link rel="prefetch" href="/assets/js/34.3dd49f7b.js"><link rel="prefetch" href="/assets/js/35.6c58a9ca.js"><link rel="prefetch" href="/assets/js/36.cf4f1779.js"><link rel="prefetch" href="/assets/js/37.0ac985f9.js"><link rel="prefetch" href="/assets/js/38.36ba92b1.js"><link rel="prefetch" href="/assets/js/39.30fbfdb0.js"><link rel="prefetch" href="/assets/js/4.b66f5c64.js"><link rel="prefetch" href="/assets/js/40.7a4da781.js"><link rel="prefetch" href="/assets/js/41.5f484c73.js"><link rel="prefetch" href="/assets/js/5.9744496f.js"><link rel="prefetch" href="/assets/js/9.c3c14855.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.14590faa.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.f8e996a3.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.23" />
+    <meta name="theme" content="VuePress Theme Hope 2.0.0-rc.93" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme="dark"] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+    <title>我的部落格</title><meta name="description" content="一個由 VuePress 與 VuePress Theme Hope 驅動的部落格。">
+    <link rel="preload" href="/assets/style-C_5BDOBq.css" as="style"><link rel="stylesheet" href="/assets/style-C_5BDOBq.css">
+    <link rel="modulepreload" href="/assets/app-wnVr6CPI.js"><link rel="modulepreload" href="/assets/404.html-DPfdery1.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-DlAUqK2U.js">
+    <link rel="prefetch" href="/assets/index.html-CpzFHRV_.js" as="script"><link rel="prefetch" href="/assets/index.html-Drr2ftMh.js" as="script"><link rel="prefetch" href="/assets/index.html-CLZKL-40.js" as="script"><link rel="prefetch" href="/assets/index.html-kN1CuyaQ.js" as="script"><link rel="prefetch" href="/assets/index.html-BbXS8nfT.js" as="script"><link rel="prefetch" href="/assets/index.html-C4AwZlbT.js" as="script"><link rel="prefetch" href="/assets/photoswipe.esm-D2Nf-uDI.js" as="script">
   </head>
-  <body class="theme-mode-light">
-    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-439bb2a8><div class="theme-vdoing-content" data-v-439bb2a8><span data-v-439bb2a8>404</span> <blockquote data-v-439bb2a8>我是谁？我在哪？</blockquote> <a href="/" class="router-link-active" data-v-439bb2a8>返回首页</a></div></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.7b2773db.js" defer></script><script src="/assets/js/6.c239e6da.js" defer></script>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="vp-skip-link sr-only">跳至主要內容</a><!--]--><!--[--><div class="theme-container no-navbar no-sidebar external-link-icon has-toc" vp-container><!----><!----><div class="toggle-sidebar-wrapper"><span class="arrow start"></span></div><aside id="sidebar" class="vp-sidebar" vp-sidebar><!----><ul class="vp-sidebar-links"><li><a class="route-link auto-link vp-sidebar-link" href="/" aria-label="/"><!---->/<!----></a></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">@pages</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">Pages</span><span class="vp-arrow end"></span></button><!----></section></li></ul><!----></aside><!--[--><main id="main-content" class="vp-page not-found"><div class="not-found-hint"><p class="error-code">404</p><h1 class="error-title">页面不存在</h1><p class="error-hint">这里什么也没有</p></div><div class="actions"><button type="button" class="action-button">返回上一页</button><button type="button" class="action-button">带我回家</button></div></main><!--]--><!----></div><!--]--><!--]--><!--[--><!----><!--[--><!--]--><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-wnVr6CPI.js" defer></script>
   </body>
 </html>
