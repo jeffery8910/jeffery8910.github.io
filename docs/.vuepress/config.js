@@ -15,7 +15,18 @@ module.exports = {
       { text: '首頁', link: '/' },
       { text: '文章', link: '/pages/folder1/test1.md' } // 範例：指向一篇範例文章
     ],
-    sidebar: 'structuring' // 'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定義
+    sidebar: 'structuring', // 'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定義
+    locales: {
+      '/': {
+        selectText: '選擇語言',
+        label: '繁體中文',
+        editLinkText: '在 GitHub 上編輯此頁',
+        nav: [
+          { text: '首頁', link: '/' },
+          { text: '文章', link: '/pages/folder1/test1.md' } // 範例：指向一篇範例文章
+        ]
+      }
+    }
   },
 
   base: '/', // 部屬站台的基本路徑。如果你想將網站部署到 https://USERNAME.github.io/REPO_NAME/（也就是说你的仓库在 https://github.com/USERNAME/REPO_NAME）， então 将 base 设置为 "/REPO_NAME/"。
