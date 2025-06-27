@@ -1,0 +1,18 @@
+{
+  "name": "githubpage",
+  "version": "1.0.0",
+  "description": "嗨！歡迎來到我的個人網站專案。",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.9.10",
+    "vuepress-theme-vdoing": "^1.12.9"
+  }
+}
