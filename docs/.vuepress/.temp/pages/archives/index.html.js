@@ -1,3 +1,0 @@
-import comp from "C:/Users/USER/Desktop/githubpage/docs/.vuepress/.temp/pages/archives/index.html.vue"
-const data = JSON.parse("{\"path\":\"/archives/\",\"title\":\"归档\",\"lang\":\"zh-TW\",\"frontmatter\":{\"archivesPage\":true,\"title\":\"归档\",\"permalink\":\"/archives/\",\"article\":false},\"git\":{\"createdTime\":1751001692000,\"updatedTime\":1751045009000,\"contributors\":[{\"name\":\"jeffery8910\",\"username\":\"jeffery8910\",\"email\":\"jeffery8910@gmail.com\",\"commits\":3,\"url\":\"https://github.com/jeffery8910\"}]},\"readingTime\":{\"minutes\":0.03,\"words\":9},\"filePathRelative\":\"@pages/archivesPage.md\"}")
-export { comp, data }

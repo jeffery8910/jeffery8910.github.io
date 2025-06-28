@@ -1,3 +1,0 @@
-import comp from "C:/Users/USER/Desktop/githubpage/docs/.vuepress/.temp/pages/pages/35bc95/index.html.vue"
-const data = JSON.parse("{\"path\":\"/pages/35bc95/\",\"title\":\"我的第一篇文章\",\"lang\":\"zh-TW\",\"frontmatter\":{\"title\":\"我的第一篇文章\",\"date\":\"2024-05-20T00:00:00.000Z\",\"category\":\"技術\",\"tag\":[\"VuePress\",\"Vdoing\"],\"permalink\":\"/pages/35bc95/\"},\"git\":{\"createdTime\":1751001692000,\"updatedTime\":1751045356000,\"contributors\":[{\"name\":\"jeffery8910\",\"username\":\"jeffery8910\",\"email\":\"jeffery8910@gmail.com\",\"commits\":4,\"url\":\"https://github.com/jeffery8910\"}]},\"readingTime\":{\"minutes\":0.23,\"words\":69},\"filePathRelative\":\"pages/folder1/test1.md\"}")
-export { comp, data }

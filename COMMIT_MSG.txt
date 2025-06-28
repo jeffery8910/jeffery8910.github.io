@@ -1,5 +1,5 @@
-feat: Configure vuepress-theme-hope for Traditional Chinese
+fix: Rebuild site to ensure latest locale changes are applied
 
-This commit configures vuepress-theme-hope to display in Traditional Chinese.
-It includes setting up the navbar, sidebar, and all locale-specific texts
-within the theme configuration.
+This commit rebuilds the VuePress site after clearing the build cache
+to ensure that all locale-related changes are fully applied and
+reflected in the generated static files.
