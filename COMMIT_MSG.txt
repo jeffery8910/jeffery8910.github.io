@@ -1,5 +1,0 @@
-fix: Rebuild site to ensure latest locale changes are applied
-
-This commit rebuilds the VuePress site after clearing the build cache
-to ensure that all locale-related changes are fully applied and
-reflected in the generated static files.

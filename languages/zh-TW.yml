@@ -1,0 +1,4 @@
+footer:
+  powered: "本站由 %s 使用 Stellar %s 主題建置。"
+  license: "本站所有文章除另有註明外，均採用 CC BY-NC-SA 4.0 授權條款，轉載請註明出處。"
+若原字串是這種格式："本站由 {author} 使用 Stellar {version} 主题创建。"

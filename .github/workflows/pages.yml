@@ -1,0 +1,41 @@
+name: Deploy Hexo (Stellar) to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm ci
+      - run: npx hexo clean && npx hexo generate
+
+      # 建置完成後，用 OpenCC 把輸出轉「臺灣繁體（含慣用詞）」：
+      - name: Install OpenCC
+        run: sudo apt-get update && sudo apt-get install -y opencc
+      - name: Convert Simplified -> Traditional (Taiwan phrases)
+        run: |
+          find public -type f \( -name "*.html" -o -name "*.xml" -o -name "*.txt" -o -name "*.json" \) -print0 \
+          | xargs -0 -I{} bash -c 'opencc -c s2twp.json -i "$1" -o "$1.oc" && mv "$1.oc" "$1"' _ {}
+
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: ./public }
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/deploy-pages@v4
