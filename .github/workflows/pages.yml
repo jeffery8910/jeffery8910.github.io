@@ -1,4 +1,5 @@
 name: Deploy Hexo (Stellar) to GitHub Pages
+
 on:
   push:
     branches: [ main ]
@@ -23,7 +24,7 @@ jobs:
       - run: npm ci
       - run: npx hexo clean && npx hexo generate
 
-      # 建置完成後，用 OpenCC 把輸出轉「臺灣繁體（含慣用詞）」：
+      # （可選）OpenCC：輸出轉臺灣繁體
       - name: Install OpenCC
         run: sudo apt-get update && sudo apt-get install -y opencc
       - name: Convert Simplified -> Traditional (Taiwan phrases)
@@ -35,7 +36,14 @@ jobs:
         with: { path: ./public }
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
     steps:
-      - uses: actions/deploy-pages@v4
+      - id: deployment
+        uses: actions/deploy-pages@v4
