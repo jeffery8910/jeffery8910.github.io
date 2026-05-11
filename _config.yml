@@ -3,11 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: 教學工程與 AI 協作作品集
+subtitle: '匿名化整理教育科技、RAG、LLM 協作與即時學習系統'
+description: '一個去識別化的作品集網站，整理教育科技、Scratch 教學、RAG/Codex 工作流、Open Generative UI、即時作業繳交系統與免費部署架構等專案經驗。'
 keywords:
-author: John Doe
+  - EdTech
+  - RAG
+  - Codex
+  - Scratch
+  - Realtime
+  - Open Generative UI
+  - GitHub Pages
+  - Hexo
+author: Anonymous EdTech Builder
 language:
   - zh-TW
   - en
@@ -68,7 +76,7 @@ index_generator:
   order_by: -date
 
 # Category & Tag
-default_category: uncategorized
+default_category: portfolio
 category_map:
 tag_map:
 
