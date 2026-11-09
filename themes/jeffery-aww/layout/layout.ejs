@@ -37,7 +37,7 @@
     </a>
     <nav class="nav__links">
       <% theme.menu.forEach(function (item) { %>
-        <a class="nav__link" href="<%- url_for(item.path) %>"><span data-text="<%= item.name %>"><%= item.name %></span></a>
+        <a class="nav__link<%= item.external ? ' nav__link--external' : '' %>" href="<%- url_for(item.path) %>"<% if (item.external) { %> target="_blank" rel="noreferrer"<% } %>><span data-text="<%= item.name %>"><%= item.name %></span></a>
       <% }) %>
     </nav>
   </header>

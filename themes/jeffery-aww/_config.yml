@@ -5,6 +5,7 @@ menu:
   - { name: 作品, path: /projects/ }
   - { name: 關於, path: /about/ }
   - { name: 封存, path: /archives/ }
+  - { name: 3D 工作室 ↗, path: https://jeffery8910.pages.dev, external: true }
 
 hero:
   eyebrow: Jeffery Liu — Portfolio 2026
@@ -28,3 +29,5 @@ marquee:
 links:
   - { name: GitHub, url: https://github.com/jeffery8910 }
   - { name: LinkedIn, url: https://www.linkedin.com/in/jeffery8910 }
+  - { name: Threads, url: https://www.threads.com/@jeffery8910 }
+  - { name: 3D 工作室, url: https://jeffery8910.pages.dev }
