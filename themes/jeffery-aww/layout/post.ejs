@@ -1,0 +1,31 @@
+<article class="article">
+  <header class="article__head">
+    <p class="eyebrow rise" style="--d:.1s">
+      <%= date(page.date, 'YYYY.MM.DD') %> · <%= read_minutes(page.content) %> 分鐘閱讀
+    </p>
+    <h1 class="article__title"><%- split_chars(page.title, 0.15, 0.035) %></h1>
+    <% if (page.tags && page.tags.length) { %>
+      <div class="article__tags rise" style="--d:.6s">
+        <% page.tags.each(function (t) { %><a class="tag" href="<%- url_for(t.path) %>">#<%= t.name %></a><% }) %>
+      </div>
+    <% } %>
+    <div class="article__rule rise" style="--d:.7s"></div>
+  </header>
+
+  <div class="prose" data-prose>
+    <%- page.content %>
+  </div>
+
+  <nav class="article__nav">
+    <% if (page.prev) { %>
+      <a class="article__nav-item" href="<%- url_for(page.prev.path) %>" data-reveal data-cursor-text="下一篇">
+        <span class="eyebrow">較新的文章</span><strong><%= page.prev.title %></strong>
+      </a>
+    <% } else { %><span></span><% } %>
+    <% if (page.next) { %>
+      <a class="article__nav-item article__nav-item--right" href="<%- url_for(page.next.path) %>" data-reveal data-cursor-text="上一篇">
+        <span class="eyebrow">較早的文章</span><strong><%= page.next.title %></strong>
+      </a>
+    <% } %>
+  </nav>
+</article>

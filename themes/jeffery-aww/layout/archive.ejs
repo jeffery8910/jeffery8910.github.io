@@ -1,0 +1,19 @@
+<%
+  let heading = '封存'
+  if (is_category()) heading = '分類：' + page.category
+  if (is_tag()) heading = '#' + page.tag
+%>
+<section class="index index--list">
+  <header class="section-head">
+    <p class="eyebrow rise" style="--d:.1s">(Archive) <%= page.posts.length %> 篇</p>
+    <h1 class="section-title section-title--xl"><%- split_chars(heading, 0.15, 0.05) %></h1>
+  </header>
+  <%- partial('_partial/post-list', { posts: page.posts }) %>
+  <% if (page.total > 1) { %>
+    <nav class="pager">
+      <% if (page.prev) { %><a class="pill" href="<%- url_for(page.prev_link) %>">← 較新</a><% } %>
+      <span><%= page.current %> / <%= page.total %></span>
+      <% if (page.next) { %><a class="pill" href="<%- url_for(page.next_link) %>">較舊 →</a><% } %>
+    </nav>
+  <% } %>
+</section>

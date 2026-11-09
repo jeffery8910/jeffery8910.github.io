@@ -1,0 +1,15 @@
+<ol class="rows">
+  <% posts.each(function (post, i) { %>
+    <li class="row" data-reveal style="--d:<%= (i % 6) * 0.06 %>s">
+      <a class="row__link" href="<%- url_for(post.path) %>" data-cursor-text="閱讀">
+        <span class="row__index"><%= pad2(i + 1) %></span>
+        <span class="row__title"><%= post.title %></span>
+        <span class="row__tags">
+          <% (post.tags ? post.tags.toArray().slice(0, 2) : []).forEach(function (t) { %><span><%= t.name %></span><% }) %>
+        </span>
+        <time class="row__date" datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'YYYY.MM.DD') %></time>
+        <span class="row__arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+  <% }) %>
+</ol>

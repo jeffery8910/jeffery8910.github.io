@@ -1,0 +1,30 @@
+# Theme settings for jeffery-aww
+
+menu:
+  - { name: 文章, path: / }
+  - { name: 作品, path: /projects/ }
+  - { name: 關於, path: /about/ }
+  - { name: 封存, path: /archives/ }
+
+hero:
+  eyebrow: Jeffery Liu — Portfolio 2026
+  lines:
+    - 教學工程
+    - × AI 協作
+  outline: LEARNING ENGINEERING
+  tagline: 把 AI 和程式，變成學得會的東西
+  meta_left: (01) EdTech · RAG · Codex
+  meta_right: Hsinchu, Taiwan
+
+marquee:
+  - EdTech
+  - RAG
+  - Codex
+  - Scratch
+  - Realtime
+  - Generative UI
+  - Learning Analytics
+
+links:
+  - { name: GitHub, url: https://github.com/jeffery8910 }
+  - { name: LinkedIn, url: https://www.linkedin.com/in/jeffery8910 }
