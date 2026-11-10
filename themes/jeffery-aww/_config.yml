@@ -27,6 +27,7 @@ marquee:
   - Learning Analytics
 
 links:
+  - { name: hi@jeffery8910.com, url: 'mailto:hi@jeffery8910.com' }
   - { name: GitHub, url: https://github.com/jeffery8910 }
   - { name: LinkedIn, url: https://www.linkedin.com/in/jeffery8910 }
   - { name: Threads, url: https://www.threads.com/@jeffery8910 }
