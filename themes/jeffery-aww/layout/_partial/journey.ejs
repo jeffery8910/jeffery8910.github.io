@@ -1,0 +1,39 @@
+<%# Learner journey map: the curve is how it feels; the row underneath is what I do at each point. %>
+<%
+  const stops = [
+    { x: 100, y: 160, name: '好奇', quote: '「AI 好像什麼都會」', act: ['先玩一個', '會動的例子'] },
+    { x: 300, y: 256, name: '卡住', quote: '「它寫的我看不懂」', act: ['把任務拆小', '一起讀它改了什麼'] },
+    { x: 500, y: 200, name: '看見', quote: '「原來卡在這裡」', act: ['把卡點變成', '看得見的步驟'] },
+    { x: 700, y: 130, name: '做出來', quote: '「我做的，會動了」', act: ['自己跑、自己講', '敢動手改'] },
+    { x: 900, y: 98, name: '帶著走', quote: '「下次我知道怎麼問」', act: ['留下方法', '和你的筆記'] },
+  ]
+%>
+<div class="journey-scroll" data-reveal>
+  <svg class="journey" viewBox="0 0 1000 400" role="img" aria-label="學習旅程圖：從好奇、卡住、看見、做出來到帶著走">
+    <defs>
+      <linearGradient id="journey-water" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0" stop-color="var(--water)" stop-opacity=".28"/>
+        <stop offset="1" stop-color="var(--water)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <% stops.forEach(function (s) { %>
+      <line class="journey__grid" x1="<%= s.x %>" x2="<%= s.x %>" y1="46" y2="300"/>
+      <text class="journey__name" x="<%= s.x %>" y="30" text-anchor="middle"><%= s.name %></text>
+    <% }) %>
+    <text class="journey__axis" x="18" y="80">有信心</text>
+    <text class="journey__axis" x="18" y="292">很挫折</text>
+    <path class="journey__fill" d="M100 160 C180 160 220 256 300 256 S420 200 500 200 S620 130 700 130 S820 98 900 98 V300 H100Z" fill="url(#journey-water)"/>
+    <path class="journey__curve" pathLength="1" d="M100 160 C180 160 220 256 300 256 S420 200 500 200 S620 130 700 130 S820 98 900 98"/>
+    <% stops.forEach(function (s, i) { %>
+      <g class="journey__stop" style="--d:<%= (0.5 + i * 0.28).toFixed(2) %>s">
+        <circle class="journey__ring" cx="<%= s.x %>" cy="<%= s.y %>" r="16"/>
+        <circle class="journey__dot<%= i === 1 ? ' journey__dot--low' : '' %>" cx="<%= s.x %>" cy="<%= s.y %>" r="7"/>
+        <text class="journey__quote" x="<%= s.x %>" y="<%= s.y - 28 %>" text-anchor="middle"><%= s.quote %></text>
+        <text class="journey__act" x="<%= s.x %>" y="338" text-anchor="middle"><%= s.act[0] %></text>
+        <text class="journey__act" x="<%= s.x %>" y="360" text-anchor="middle"><%= s.act[1] %></text>
+      </g>
+    <% }) %>
+    <text class="journey__label" x="18" y="392">↑ 這一排，是我在每一站會做的事</text>
+    <line class="journey__base" x1="60" x2="960" y1="312" y2="312"/>
+  </svg>
+</div>

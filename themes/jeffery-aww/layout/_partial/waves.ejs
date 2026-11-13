@@ -1,0 +1,12 @@
+<%# Two layered waves that slide sideways forever. The path repeats every 720 units so the loop is seamless. %>
+<%
+  let d = 'M0 60 C120 22 240 22 360 60'
+  for (let x = 720; x <= 2880; x += 360) d += ` S${x - 120} ${(x / 360) % 2 === 0 ? 98 : 22} ${x} 60`
+  d += ' V140 H0Z'
+%>
+<div class="waves <%= cls || '' %>" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path class="waves__back" d="<%= d %>"/>
+    <path class="waves__front" d="<%= d %>"/>
+  </svg>
+</div>

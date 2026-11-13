@@ -1,30 +1,119 @@
-# Theme settings for jeffery-aww
+# Theme settings for jeffery-aww — all home-page copy lives here.
+# Visual idea: a studio on a salt flat at twilight. Light, water, and one line on the horizon.
+
+studio_url: https://jeffery8910.pages.dev
+contact_email: hi@jeffery8910.com
 
 menu:
-  - { name: 文章, path: / }
+  - { name: 文章, path: '/#writing' }
+  - { name: 我怎麼工作, path: '/#method', wide: true }
   - { name: 作品, path: /projects/ }
   - { name: 關於, path: /about/ }
-  - { name: 封存, path: /archives/ }
-  - { name: 3D 工作室 ↗, path: https://jeffery8910.pages.dev, external: true }
+  - { name: 3D 工作室 ↗, path: https://jeffery8910.pages.dev, external: true, wide: true }
 
 hero:
-  eyebrow: Jeffery Liu — Portfolio 2026
+  eyebrow: 劉鎮臺 Jeffery Liu — 學習工程師
   lines:
-    - 教學工程
-    - × AI 協作
-  outline: LEARNING ENGINEERING
-  tagline: 把 AI 和程式，變成學得會的東西
-  meta_left: (01) EdTech · RAG · Codex
-  meta_right: Hsinchu, Taiwan
+    - 把難的東西
+    - 變成學得會的
+  outline: LEARNING, MADE CLEAR
+  lead: 我是鎮臺。我做學習平台、教人和 AI 一起寫程式，也帶工作坊。你是老師、學生，或是想把 AI 用進工作的人都好，我想做的只有一件事：在你卡住的那一步，留一盞燈。
+  meta_left: 數位學習 × AI × 腦科學
+  meta_right: 新竹，台灣
 
 marquee:
-  - EdTech
-  - RAG
-  - Codex
-  - Scratch
-  - Realtime
-  - Generative UI
-  - Learning Analytics
+  - 看得見卡在哪
+  - 映出自己的想法
+  - 帶得走的方法
+  - 慢慢來，比較快
+
+values:
+  eyebrow: (01) 我相信的三件事
+  title: 光、水、一條線
+  intro: 這不是口號。每次設計一堂課、一個工具，我會回頭檢查這三件事。
+  items:
+    - icon: sun
+      key: 光
+      title: 一盞燈，照亮卡住的那一步
+      text: 學不會，常常不是不努力，而是不知道自己卡在哪。我做的工具和課，會先讓那一步被看見。
+    - icon: drop
+      key: 水
+      title: 像水面一樣，映出你自己的想法
+      text: 我不替你做完，也不只丟一份教材給你。我們從一個今天做得完的小任務開始，讓你看見自己是怎麼想的，再做出看得懂、敢動手改的東西。
+    - icon: horizon
+      key: 線
+      title: 一條帶得走的路
+      text: 工具會換，介面會變。把任務拆小、看懂 AI 改了什麼、自己驗收，這些習慣會跟著你走進下一個專案。
+
+audiences:
+  eyebrow: (02) 你可能是
+  title: 我可以怎麼幫上忙
+  items:
+    - who: 老師、學校、補習班
+      need: 想把 AI 帶進教室，但不想只是多一個工具
+      offer: 一起設計學生真的跟得上的課，或辦一場動手做的工作坊。
+    - who: 學生、自學的人
+      need: 想學寫程式，卻常常卡在看不懂 AI 給的答案
+      offer: 從一個小作品開始，學會怎麼問、怎麼看、怎麼改。
+    - who: 團隊、研究者
+      need: 想把 AI 用進流程，又怕做出沒人敢維護的東西
+      offer: 把需求拆成可以驗收的任務，建立你們自己的協作方法。
+  cta: 說說你的狀況
+
+method:
+  eyebrow: (03) 我怎麼工作
+  title: 從你開口，到你帶著作品離開
+  intro: 這是一張服務藍圖。上面是你會經歷的事，下面是我在你看不見的地方做的事。
+  stages: [先聽你說, 一起拆小, 邊做邊看, 驗收, 帶得走]
+  lanes:
+    - name: 你會做的事
+      tone: accent
+      cells:
+        - 說出想做的事，還有卡住的地方
+        - 選一個最小、今天做得完的任務
+        - 動手做，隨時可以喊卡
+        - 自己跑一次，自己講一次
+        - 帶著作品和筆記回去用
+    - name: 我們碰面的地方
+      tone: water
+      cells:
+        - 聊天，或一張簡單的表單
+        - 任務卡和白板
+        - 課堂、共筆、螢幕分享
+        - 作品展示
+        - 文章和互動教具
+    - name: 我在幕後做的事
+      tone: paper
+      cells:
+        - 把需求整理成學習目標
+        - 設計鷹架和例子
+        - 看資料，找出誰卡住了
+        - 檢查答案和程式是真的對
+        - 把過程寫成文章和教具
+    - name: 撐住這一切的系統
+      tone: deep
+      cells:
+        - 訪談筆記
+        - 題庫與互動教學網頁
+        - 即時繳交系統、學習分析
+        - 可驗證的計算與測試
+        - GitHub 和這個網站
+
+journey:
+  eyebrow: (04) 學的人會經過什麼
+  title: 卡住不是終點，是轉彎的地方
+  intro: 這是一張學習旅程圖。線往下掉的那一段，是我最想陪你走的地方。
+
+writing:
+  eyebrow: (05) 最近在想的事
+  title: 我把想清楚的事，寫下來
+
+statement: 我在意的不是工具有多新，而是它到了學生和老師手上，能不能真的一步一步用起來。
+
+footer:
+  eyebrow: 說來聽聽
+  cta: 有想做的事？寫信給我
+  note: 不用想得很正式，一句話也可以。我會親自回你。
 
 links:
   - { name: hi@jeffery8910.com, url: 'mailto:hi@jeffery8910.com' }

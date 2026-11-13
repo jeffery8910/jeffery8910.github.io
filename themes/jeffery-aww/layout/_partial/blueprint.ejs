@@ -1,0 +1,27 @@
+<%# Service blueprint: stages across, lanes down. The dashed line separates what the learner sees from what happens backstage. %>
+<% const m = theme.method %>
+<div class="bp-scroll" data-reveal>
+  <figure class="bp" role="table" aria-label="服務藍圖">
+    <div class="bp__row bp__row--head" role="row">
+      <div class="bp__lane" role="columnheader"></div>
+      <% m.stages.forEach(function (stage, i) { %>
+        <div class="bp__stage" role="columnheader">
+          <span class="bp__num"><%= pad2(i + 1) %></span>
+          <strong><%= stage %></strong>
+          <% if (i < m.stages.length - 1) { %><span class="bp__arrow" aria-hidden="true">→</span><% } %>
+        </div>
+      <% }) %>
+    </div>
+    <% m.lanes.forEach(function (lane, r) { %>
+      <% if (r === 2) { %>
+        <div class="bp__line" aria-hidden="true"><span>可見線 — 這條線以下，是你看不到、但一直有人在做的事</span></div>
+      <% } %>
+      <div class="bp__row bp__row--<%= lane.tone %>" role="row">
+        <div class="bp__lane" role="rowheader"><%= lane.name %></div>
+        <% lane.cells.forEach(function (cell, i) { %>
+          <div class="bp__cell" role="cell" style="--d:<%= (r * 0.08 + i * 0.05).toFixed(2) %>s"><%= cell %></div>
+        <% }) %>
+      </div>
+    <% }) %>
+  </figure>
+</div>

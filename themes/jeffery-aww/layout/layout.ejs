@@ -8,12 +8,12 @@
   <meta name="description" content="<%= page.description || page.excerpt && strip_html(page.excerpt).slice(0, 120) || config.description %>">
   <meta property="og:title" content="<%= pageTitle %>">
   <meta property="og:description" content="<%= config.description %>">
-  <meta name="theme-color" content="#0b0d14">
+  <meta name="theme-color" content="#283350">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d14'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%23ffb86b'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b212c'/%3E%3Ccircle cx='32' cy='30' r='11' fill='%23efb07a'/%3E%3Crect x='10' y='40' width='44' height='3' fill='%23f6f0e7'/%3E%3C/svg%3E">
   <script>
     document.documentElement.classList.add('js');
     // Safety net: never leave text hidden if the main script is slow or blocked.
@@ -23,21 +23,22 @@
 <body class="<%= is_home() ? 'is-home' : '' %>">
   <% if (is_home() && !page.prev) { %>
   <div class="loader" data-loader>
-    <div class="loader__top"><span>jeffery8910</span><span>Portfolio — 2026</span></div>
+    <div class="loader__top"><span>jeffery8910</span><span data-loader-line>天色正在變</span></div>
     <div class="loader__bar"><span data-loader-bar></span></div>
     <div class="loader__count" data-loader-count>000</div>
   </div>
   <% } %>
 
-  <div class="curtain" data-curtain aria-hidden="true"><span><%= config.title %></span></div>
+  <div class="curtain" data-curtain aria-hidden="true"><span>等水面靜下來</span></div>
 
   <header class="nav">
     <a class="nav__brand" href="<%- url_for('/') %>">
-      <strong>Jeffery Liu</strong><span>教學工程 × AI</span>
+      <%- motif_icon('horizon') %>
+      <strong>鎮臺</strong><span>Jeffery Liu</span>
     </a>
     <nav class="nav__links">
       <% theme.menu.forEach(function (item) { %>
-        <a class="nav__link<%= item.external ? ' nav__link--external' : '' %>" href="<%- url_for(item.path) %>"<% if (item.external) { %> target="_blank" rel="noreferrer"<% } %>><span data-text="<%= item.name %>"><%= item.name %></span></a>
+        <a class="nav__link<%= item.wide ? ' nav__link--wide' : '' %>" href="<%- item.external ? item.path : url_for(item.path) %>"<% if (item.external) { %> target="_blank" rel="noreferrer"<% } %>><span data-text="<%= item.name %>"><%= item.name %></span></a>
       <% }) %>
     </nav>
   </header>
@@ -47,25 +48,27 @@
   </main>
 
   <footer class="footer">
-    <div class="footer__big" data-reveal>
-      <p class="eyebrow">Let's talk</p>
-      <a class="footer__cta" href="https://www.linkedin.com/in/jeffery8910" target="_blank" rel="noreferrer">
-        <%- split_chars('一起聊聊教學與 AI', 0, 0.03) %> <span class="footer__arrow">↗</span>
-      </a>
-    </div>
-    <div class="footer__row">
-      <span>© <%= new Date().getFullYear() %> <%= config.author %></span>
-      <span class="footer__links">
-        <% theme.links.forEach(function (l) { %>
-          <a href="<%- l.url %>" target="_blank" rel="noreferrer"><%= l.name %> ↗</a>
-        <% }) %>
-      </span>
+    <div class="footer__inner">
+      <div class="footer__big" data-reveal>
+        <p class="eyebrow"><%= theme.footer.eyebrow %></p>
+        <a class="footer__cta" href="mailto:<%= theme.contact_email %>" data-cursor-text="寫信">
+          <%- split_chars(theme.footer.cta, 0, 0.03) %> <span class="footer__arrow">↗</span>
+        </a>
+        <p class="footer__note"><%= theme.footer.note %></p>
+      </div>
+      <div class="footer__row">
+        <span>© <%= new Date().getFullYear() %> <%= config.author %></span>
+        <span class="footer__links">
+          <% theme.links.forEach(function (l) { %>
+            <a href="<%- l.url %>"<% if (!l.url.startsWith('mailto:')) { %> target="_blank" rel="noreferrer"<% } %>><%= l.name %></a>
+          <% }) %>
+        </span>
+      </div>
     </div>
   </footer>
 
   <div class="cursor-ring" data-cursor><span data-cursor-label></span></div>
   <div class="cursor-dot" data-cursor-dot></div>
-  <div class="grain" aria-hidden="true"></div>
 
   <script src="<%- url_for('/js/main.js') %>" defer></script>
 </body>

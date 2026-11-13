@@ -1,36 +1,40 @@
-// jeffery-aww: loader, page-transition curtain, scroll reveals and the trailing cursor.
+// jeffery-aww: loader, water curtain between pages, scroll reveals, click ripples and the trailing cursor.
 (function () {
   const root = document.documentElement
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
+  const curtain = document.querySelector('[data-curtain]')
 
-  // ---- loader (home page, once per visit) ----
-  const loader = document.querySelector('[data-loader]')
   function startPage() {
     root.classList.add('is-ready')
   }
+
+  // ---- loader (home page, once per visit) ----
+  const loader = document.querySelector('[data-loader]')
   if (loader && !sessionStorage.getItem('aww-loaded') && !reduced) {
     sessionStorage.setItem('aww-loaded', '1')
     const bar = loader.querySelector('[data-loader-bar]')
     const count = loader.querySelector('[data-loader-count]')
+    const line = loader.querySelector('[data-loader-line]')
+    const lines = ['天色正在變', '點一盞燈', '等水面靜下來', '請進']
     const start = performance.now()
-    const duration = 1500
+    const duration = 1700
     const tick = (now) => {
       const t = Math.min(1, (now - start) / duration)
       const v = Math.round((1 - Math.pow(1 - t, 3)) * 100)
       count.textContent = String(v).padStart(3, '0')
       bar.style.transform = 'scaleX(' + v / 100 + ')'
+      line.textContent = lines[Math.min(lines.length - 1, Math.floor((v / 100) * lines.length))]
       if (t < 1) return requestAnimationFrame(tick)
       loader.classList.add('is-leaving')
       setTimeout(() => {
         loader.remove()
         startPage()
-      }, 650)
+      }, 700)
     }
     requestAnimationFrame(tick)
   } else {
     if (loader) loader.remove()
-    // Arriving from another page: lift the curtain that covered the previous one.
-    const curtain = document.querySelector('[data-curtain]')
+    // Arriving from another page: the water that covered the last page drains upward.
     if (sessionStorage.getItem('aww-transition') && curtain && !reduced) {
       sessionStorage.removeItem('aww-transition')
       curtain.classList.add('is-covering', 'no-anim')
@@ -46,38 +50,46 @@
     }
   }
 
-  // ---- page transitions: curtain sweeps up before leaving ----
+  // ---- page transitions: water rises before leaving ----
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a')
-    if (!a || reduced) return
+    if (!a || reduced || !curtain) return
     const url = new URL(a.href, location.href)
     const internal = url.origin === location.origin && !a.target && !a.hasAttribute('download')
     const samePageHash = url.pathname === location.pathname && url.hash
     if (!internal || samePageHash || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
     e.preventDefault()
-    const curtain = document.querySelector('[data-curtain]')
     sessionStorage.setItem('aww-transition', '1')
+    // Snap back below the screen first, then let it rise.
+    curtain.classList.add('no-anim')
     curtain.classList.remove('is-leaving')
+    void curtain.offsetHeight
+    curtain.classList.remove('no-anim')
     curtain.classList.add('is-covering')
-    setTimeout(() => (location.href = url.href), 700)
+    setTimeout(() => (location.href = url.href), 800)
   })
   // Restore state when coming back via the back button (bfcache).
   addEventListener('pageshow', (e) => {
-    if (e.persisted) {
-      const curtain = document.querySelector('[data-curtain]')
-      curtain && curtain.classList.remove('is-covering')
+    if (e.persisted && curtain) {
+      curtain.classList.add('no-anim')
+      curtain.classList.remove('is-covering', 'is-leaving')
+      requestAnimationFrame(() => curtain.classList.remove('no-anim'))
     }
   })
 
-  // ---- smooth anchor scroll ----
-  document.querySelectorAll('a[href^="#"]').forEach((a) =>
-    a.addEventListener('click', (e) => {
-      const target = document.querySelector(a.getAttribute('href'))
-      if (!target) return
-      e.preventDefault()
-      target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' })
+  // ---- a ripple wherever you click, like touching water ----
+  if (!reduced) {
+    addEventListener('pointerdown', (e) => {
+      for (let i = 0; i < 2; i++) {
+        const ring = document.createElement('span')
+        ring.className = 'ripple'
+        ring.style.left = e.clientX + 'px'
+        ring.style.top = e.clientY + 'px'
+        document.body.appendChild(ring)
+        ring.addEventListener('animationend', () => ring.remove())
+      }
     })
-  )
+  }
 
   // ---- scroll reveals ----
   const prose = document.querySelector('[data-prose]')
@@ -111,13 +123,13 @@
     { passive: true }
   )
 
-  // ---- hero parallax: the orb drifts with the pointer ----
-  const orb = document.querySelector('.hero__orb')
-  if (orb && !reduced) {
+  // ---- the sun drifts a little with the pointer ----
+  const sun = document.querySelector('.hero__sun')
+  if (sun && !reduced) {
     addEventListener('pointermove', (e) => {
-      const x = (e.clientX / innerWidth - 0.5) * 40
-      const y = (e.clientY / innerHeight - 0.5) * 40
-      orb.style.translate = x + 'px ' + y + 'px'
+      const x = (e.clientX / innerWidth - 0.5) * -50
+      const y = (e.clientY / innerHeight - 0.5) * -50
+      sun.style.translate = x + 'px ' + y + 'px'
     })
   }
 
